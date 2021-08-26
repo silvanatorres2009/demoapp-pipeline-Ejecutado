@@ -4,14 +4,14 @@ pipeline {
     stage('Construyendo la App') {
       steps {
         echo 'Paso 1 construyendo la App'
-        sh 'run_build_script.sh'
+        sh 'sh run_build_script.sh'
       }
     }
 
     stage('Test Linux') {
       steps {
         echo 'Realizando la prueba en Linux'
-        sh 'run_linux_test.sh'
+        sh 'sh run_linux_test.sh'
       }
     }
 
