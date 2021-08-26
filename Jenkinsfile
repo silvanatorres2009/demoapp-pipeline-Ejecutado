@@ -33,4 +33,14 @@ pipeline {
     }
 
   }
+  post {
+    always {
+      archiveArtifacts(artifacts: 'demoapp.jar', fingerprint: true)
+    }
+
+    failure {
+      mail(to: 'gp1304@gmail.com', subject: "Failed Pipeline ${currentBuild.fullDisplayName}", body: " For details about the failure, see ${env.BUILD_URL}")
+    }
+
+  }
 }
